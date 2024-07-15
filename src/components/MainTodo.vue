@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <input type="text" class=""todo-input" placeholder="+ TODOを入力" />
+    <input type="text" class="todo-input" placeholder="+ TODOを入力" />
     <button class="btn">追加</button>
   </div>
 </template>
