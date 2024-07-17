@@ -1,8 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const todo = ref('');
+</script>
 
 <template>
   <div>
-    <input type="text" class="todo-input" placeholder="+ TODOを入力" />
+    <input type="text" class="todo-input" v-model="todo" placeholder="+ TODOを入力" />
     <button class="btn">追加</button>
   </div>
 </template>
