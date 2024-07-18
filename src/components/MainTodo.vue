@@ -2,6 +2,10 @@
 import { ref } from 'vue';
 
 const todo = ref('');
+
+const addTodo = () => {
+  console.log(todo.value);
+};
 </script>
 
 <template>
