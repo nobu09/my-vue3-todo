@@ -2,9 +2,20 @@
 import { ref } from 'vue';
 
 const todo = ref('');
+const todoList = ref<{ id: number; text: string }[]>([]);
 
 const addTodo = () => {
-  localStorage.todoList = todo.value;
+  // IDを簡易的にミリ秒で生成
+  const id = new Date().getTime();
+
+  // 配列に入力TODOを格納
+  todoList.value.push({ id: id, text: todo.value });
+
+  // ローカルストレージにTODOリストをJSONで登録
+  localStorage.todoList = JSON.stringify(todoList.value);
+
+  // 入力値をクリア
+  todo.value = '';
 };
 </script>
 
