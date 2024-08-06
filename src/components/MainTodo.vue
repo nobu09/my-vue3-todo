@@ -24,6 +24,28 @@ const addTodo = () => {
     <input type="text" class="todo-input" v-model="todo" placeholder="+ TODOを入力" />
     <button class="btn" @click="addTodo">追加</button>
   </div>
+
+  <div class="box_list">
+    <div class="todo_list">
+      <input type="checkbox" class="check" />
+      <label>TODO1</label>
+    </div>
+
+    <div class="todo_btns">
+      <button class="btn green">編</button>
+      <button class="btn pinnk">削</button>
+    </div>
+
+    <div class="todo_list">
+      <input type="checkbox" class="check" />
+      <label>TODO2</label>
+    </div>
+
+    <div class="todo_btns">
+      <button class="btn green">編</button>
+      <button class="btn pinnk">削</button>
+    </div>
+  </div>
 </template>
 
 <style scoped>
