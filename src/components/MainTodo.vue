@@ -27,23 +27,27 @@ const addTodo = () => {
 
   <div class="box_list">
     <div class="todo_list">
-      <input type="checkbox" class="check" />
-      <label>TODO1</label>
-    </div>
+      <div class="todo">
+        <input type="checkbox" class="check" />
+        <label>TODO1</label>
+      </div>
 
-    <div class="todo_btns">
-      <button class="btn green">編</button>
-      <button class="btn pinnk">削</button>
-    </div>
+      <div class="btns">
+        <button class="btn green">編</button>
+        <button class="btn pink">削</button>
+      </div>
 
-    <div class="todo_list">
-      <input type="checkbox" class="check" />
-      <label>TODO2</label>
-    </div>
+      <div class="todo_list">
+        <div class="todo">
+          <input type="checkbox" class="check" />
+          <label>TODO2</label>
+        </div>
 
-    <div class="todo_btns">
-      <button class="btn green">編</button>
-      <button class="btn pinnk">削</button>
+        <div class="btns">
+          <button class="btn green">編</button>
+          <button class="btn pink">削</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -60,5 +64,43 @@ const addTodo = () => {
 
 .btn:active {
   top: 1px;
+}
+
+.box_list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 20px;
+}
+
+.todo_list {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.todo {
+  width: 250px;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.check {
+  margin-right: 12px;
+  transform: scale(1.6);
+}
+
+.btns {
+  display: flex;
+  gap: 4px;
+}
+
+.green {
+  background-color: #00c853;
+}
+
+.pink {
+  background-color: #ff4081;
 }
 </style>
