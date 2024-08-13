@@ -17,6 +17,8 @@ const addTodo = () => {
   // 入力値をクリア
   todo.value = '';
 };
+
+const todoExample = ref(['example1', 'example2', 'example3']);
 </script>
 
 <template>
@@ -49,6 +51,10 @@ const addTodo = () => {
         <button class="btn pink">削</button>
       </div>
     </div>
+  </div>
+
+  <div v-for="(example, index) in todoExample" :key="index">
+    <p>{{ index }}. {{ example }}</p>
   </div>
 </template>
 
