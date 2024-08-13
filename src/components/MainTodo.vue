@@ -36,17 +36,17 @@ const addTodo = () => {
         <button class="btn green">編</button>
         <button class="btn pink">削</button>
       </div>
+    </div>
 
-      <div class="todo_list">
-        <div class="todo">
-          <input type="checkbox" class="check" />
-          <label>TODO2</label>
-        </div>
+    <div class="todo_list">
+      <div class="todo">
+        <input type="checkbox" class="check" />
+        <label>TODO2</label>
+      </div>
 
-        <div class="btns">
-          <button class="btn green">編</button>
-          <button class="btn pink">削</button>
-        </div>
+      <div class="btns">
+        <button class="btn green">編</button>
+        <button class="btn pink">削</button>
       </div>
     </div>
   </div>
@@ -59,6 +59,17 @@ const addTodo = () => {
   margin-right: 8px;
   font-size: 18px;
   border: 1px solid #aaa;
+  border-radius: 6px;
+}
+
+.btn {
+  position: relative;
+  padding: 6px 8px;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+  background-color: #03a9f4;
+  border: 1px solid #eee;
   border-radius: 6px;
 }
 
