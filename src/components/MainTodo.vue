@@ -3,6 +3,11 @@ import { ref } from 'vue';
 
 const todo = ref('');
 const todoList = ref<{ id: number; text: string }[]>([]);
+const ls = localStorage.todoList;
+
+// ローカルストレージにtodoListが存在していればparseして格納（ローカルストレージにはJSONコードにシリアライズされたデータが入っている）
+// なければ空の配列を格納
+todoList.value = ls ? JSON.parse(ls) : [];
 
 const addTodo = () => {
   // IDを簡易的にミリ秒で生成
