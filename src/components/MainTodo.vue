@@ -22,6 +22,14 @@ const addTodo = () => {
   // 入力値をクリア
   todo.value = '';
 };
+
+const showTodo = (id: number) => {
+  const findTodo = todoList.value.find((todo) => todo.id === id);
+
+  if (findTodo) {
+    todo.value = findTodo.text;
+  }
+};
 </script>
 
 <template>
@@ -38,7 +46,7 @@ const addTodo = () => {
       </div>
 
       <div class="btns">
-        <button class="btn green">編</button>
+        <button class="btn green" @click="showTodo(todo.id)">編</button>
         <button class="btn pink">削</button>
       </div>
     </div>
