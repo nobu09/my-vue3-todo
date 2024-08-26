@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 
 const todo = ref('');
+const isEdit = ref(false);
 const todoList = ref<{ id: number; text: string }[]>([]);
 const ls = localStorage.todoList;
 
@@ -28,14 +29,18 @@ const showTodo = (id: number) => {
 
   if (findTodo) {
     todo.value = findTodo.text;
+    isEdit.value = true;
   }
 };
+
+const editTodo = () => {};
 </script>
 
 <template>
   <div>
     <input type="text" class="todo-input" v-model="todo" placeholder="+ TODOを入力" />
-    <button class="btn" @click="addTodo">追加</button>
+    <button class="btn green" @click="editTodo" v-if="isEdit">変更</button>
+    <button class="btn" @click="addTodo" v-else>追加</button>
   </div>
 
   <div class="box_list">
