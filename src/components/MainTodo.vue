@@ -39,8 +39,8 @@ const editTodo = () => {};
 <template>
   <div>
     <input type="text" class="todo-input" v-model="todo" placeholder="+ TODOを入力" />
-    <button class="btn green" @click="editTodo" v-if="isEdit">変更</button>
-    <button class="btn" @click="addTodo" v-else>追加</button>
+    <button class="btn green" @click="editTodo" v-show="isEdit">変更</button>
+    <button class="btn" @click="addTodo" v-show="!isEdit">追加</button>
   </div>
 
   <div class="box_list">
