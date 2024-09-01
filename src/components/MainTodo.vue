@@ -5,6 +5,7 @@ const todo = ref('');
 const isEdit = ref(false);
 const todoList = ref<{ id: number; text: string }[]>([]);
 const ls = localStorage.todoList;
+let editId = -1;
 
 // ローカルストレージにtodoListが存在していればparseして格納（ローカルストレージにはJSONコードにシリアライズされたデータが入っている）
 // なければ空の配列を格納
@@ -30,10 +31,19 @@ const showTodo = (id: number) => {
   if (findTodo) {
     todo.value = findTodo.text;
     isEdit.value = true;
+    editId = id;
   }
 };
 
-const editTodo = () => {};
+const editTodo = () => {
+  // TODOリストから編集対象のIDに一致するTODOを取得
+  const findTodo = todoList.value.find((todo) => todo.id === editId);
+  const idx = todoList.value.findIndex((todo) => todo.id === editId);
+
+  if (findTodo) {
+    findTodo.text = todo.value;
+  }
+};
 </script>
 
 <template>
