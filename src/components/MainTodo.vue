@@ -52,7 +52,15 @@ const editTodo = () => {
   }
 };
 
-const deleteTodo = (id: number) => {};
+const deleteTodo = (id: number) => {
+  // TODOリストから削除対象のIDに一致するTODOを取得
+  const deleteIdx = todoList.value.findIndex((todo) => todo.id === id);
+
+  if (deleteIdx !== -1) {
+    todoList.value.splice(deleteIdx, 1);
+    localStorage.todoList = JSON.stringify(todoList.value);
+  }
+};
 </script>
 
 <template>
