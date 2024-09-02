@@ -42,6 +42,13 @@ const editTodo = () => {
 
   if (findTodo) {
     findTodo.text = todo.value;
+    todoList.value.splice(idx, 1, findTodo);
+    localStorage.todoList = JSON.stringify(todoList.value);
+
+    // 初期値に戻す
+    isEdit.value = false;
+    editId = -1;
+    todo.value = '';
   }
 };
 </script>
