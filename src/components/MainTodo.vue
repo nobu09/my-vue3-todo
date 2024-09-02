@@ -51,6 +51,8 @@ const editTodo = () => {
     todo.value = '';
   }
 };
+
+const deleteTodo = (id: number) => {};
 </script>
 
 <template>
@@ -69,7 +71,7 @@ const editTodo = () => {
 
       <div class="btns">
         <button class="btn green" @click="showTodo(todo.id)">編</button>
-        <button class="btn pink">削</button>
+        <button class="btn pink" @click="deleteTodo(todo.id)">削</button>
       </div>
     </div>
   </div>
