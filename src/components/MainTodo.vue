@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useTodoList } from '../composables/useTodoList';
+import { useTodoList } from '@/composables/useTodoList';
 
 const todo = ref('');
 const isEdit = ref(false);
