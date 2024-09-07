@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useTodoList } from '../composables/useTodoList';
 
 const todo = ref('');
 const isEdit = ref(false);
@@ -26,7 +27,7 @@ const addTodo = () => {
 };
 
 const showTodo = (id: number) => {
-  const findTodo = todoList.value.find((todo) => todo.id === id);
+  const { findTodo } = useTodoList(id);
 
   if (findTodo) {
     todo.value = findTodo.text;
@@ -36,9 +37,7 @@ const showTodo = (id: number) => {
 };
 
 const editTodo = () => {
-  // TODOリストから編集対象のIDに一致するTODOを取得
-  const findTodo = todoList.value.find((todo) => todo.id === editId);
-  const idx = todoList.value.findIndex((todo) => todo.id === editId);
+  const { findTodo, idx } = useTodoList(editId);
 
   if (findTodo) {
     findTodo.text = todo.value;
@@ -53,9 +52,7 @@ const editTodo = () => {
 };
 
 const deleteTodo = (id: number) => {
-  // TODOリストから削除対象のIDに一致するTODOを取得
-  const findTodo = todoList.value.find((todo) => todo.id === id);
-  const deleteIdx = todoList.value.findIndex((todo) => todo.id === id);
+  const { findTodo, deleteIdx } = useTodoList(id);
 
   // 削除対象のTODOが存在すれば削除
   if (findTodo) {
