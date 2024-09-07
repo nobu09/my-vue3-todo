@@ -52,6 +52,11 @@ const editTodo = () => {
 };
 
 const deleteTodo = (id: number) => {
+  // 初期値に戻す
+  isEdit.value = false;
+  editId = -1;
+  todo.value = '';
+
   const { findTodo, deleteIdx } = useTodoList(id);
 
   // 削除対象のTODOが存在すれば削除
