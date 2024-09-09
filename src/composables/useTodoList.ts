@@ -3,6 +3,7 @@ import { ref } from 'vue';
 export const useTodoList = (id: number) => {
   const todoList = ref<{ id: number; text: string }[]>([]);
   const ls = localStorage.todoList;
+  const editId = -1;
   todoList.value = ls ? JSON.parse(ls) : [];
 
   const findById = (id: number) => {
@@ -22,6 +23,12 @@ export const useTodoList = (id: number) => {
 
     // localStorageに保存
     localStorage.todoList = JSON.stringify(todoList.value);
+  };
+
+  const show = (id: number) => {
+    const todo = findById(id);
+    editId.value = id;
+    return todo?.text;
   };
 
   return { todoList, add };
