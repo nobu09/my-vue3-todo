@@ -5,6 +5,14 @@ export const useTodoList = (id: number) => {
   const ls = localStorage.todoList;
   todoList.value = ls ? JSON.parse(ls) : [];
 
+  const findById = (id: number) => {
+    return todoList.value.find((todo) => todo.id === id);
+  };
+
+  const findIndexById = (id: number) => {
+    return todoList.value.findIndex((todo) => todo.id === id);
+  };
+
   const add = (task: string) => {
     // IDを簡易的にミリ秒で登録する
     const id = new Date().getTime();
