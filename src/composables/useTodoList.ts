@@ -3,7 +3,7 @@ import { ref } from 'vue';
 export const useTodoList = (id: number) => {
   const todoList = ref<{ id: number; text: string }[]>([]);
   const ls = localStorage.todoList;
-  const editId = -1;
+  const editId = ref(-1);
   todoList.value = ls ? JSON.parse(ls) : [];
 
   const findById = (id: number) => {
@@ -28,8 +28,20 @@ export const useTodoList = (id: number) => {
   const show = (id: number) => {
     const todo = findById(id);
     editId.value = id;
-    return todo?.text;
-  };
+    return todo?.text; // todo?は取得できればtext、できなければundefinedを返す
+  }
+  
+  const edit = (text: string) => {
+    const todo = findById(editId.value);
+    const idx = findIndexById(editId.value);
+
+    if (todo) {
+      todo.text = text;
+      todoList.value.splice(idx, 1, todo);
+      localStorage.todoList = JSON.stringify(todoList.value);
+
+      editId.value = -1; // 編集モードを解除、editIdを初期化
+    }
 
   return { todoList, add };
 };
