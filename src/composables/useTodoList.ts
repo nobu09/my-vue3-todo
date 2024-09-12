@@ -56,5 +56,5 @@ export const useTodoList = (id: number) => {
     }
   };
 
-  return { todoList, add };
+  return { todoList, add, show, edit, del };
 };
