@@ -29,8 +29,8 @@ export const useTodoList = (id: number) => {
     const todo = findById(id);
     editId.value = id;
     return todo?.text; // todo?は取得できればtext、できなければundefinedを返す
-  }
-  
+  };
+
   const edit = (text: string) => {
     const todo = findById(editId.value);
     const idx = findIndexById(editId.value);
@@ -42,6 +42,19 @@ export const useTodoList = (id: number) => {
 
       editId.value = -1; // 編集モードを解除、editIdを初期化
     }
+  };
+
+  const del = (id: number) => {
+    const todo = findById(id);
+    if (todo) {
+      const deleteMessage = `「${todo.text}」を削除しますか？`;
+      if (!confirm(deleteMessage)) return;
+
+      const deleteIndex = findIndexById(id);
+      todoList.value.splice(findIndexById(id), deleteIndex);
+      localStorage.todoList = JSON.stringify(todoList.value);
+    }
+  };
 
   return { todoList, add };
 };
