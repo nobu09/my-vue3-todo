@@ -2,12 +2,14 @@
 import { ref } from 'vue';
 import { useTodoList } from '@/composables/useTodoList';
 
-const todo = ref('');
+const todo = ref<string | undefined>();
 const isEdit = ref(false);
-const { todoList, add, show, edit, del } = useTodoList();
 let editId = -1;
+const { todoList, add, show, edit, del } = useTodoList();
 
 const addTodo = () => {
+  if (!todo.value) return;
+
   // todoListに追加
   add(todo.value);
 
@@ -16,10 +18,9 @@ const addTodo = () => {
 };
 
 const showTodo = (id: number) => {
-  const { findTodo } = useTodoList(id);
+  todo.value = show(id);
 
-  if (findTodo) {
-    todo.value = findTodo.text;
+  if (todo.value) {
     isEdit.value = true;
     editId = id;
   }
