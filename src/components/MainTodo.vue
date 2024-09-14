@@ -4,23 +4,12 @@ import { useTodoList } from '@/composables/useTodoList';
 
 const todo = ref('');
 const isEdit = ref(false);
-const todoList = ref<{ id: number; text: string }[]>([]);
-const ls = localStorage.todoList;
+const { todoList, add, show, edit, del } = useTodoList();
 let editId = -1;
 
-// ローカルストレージにtodoListが存在していればparseして格納（ローカルストレージにはJSONコードにシリアライズされたデータが入っている）
-// なければ空の配列を格納
-todoList.value = ls ? JSON.parse(ls) : [];
-
 const addTodo = () => {
-  // IDを簡易的にミリ秒で生成
-  const id = new Date().getTime();
-
-  // 配列に入力TODOを格納
-  todoList.value.push({ id: id, text: todo.value });
-
-  // ローカルストレージにTODOリストをJSONで登録
-  localStorage.todoList = JSON.stringify(todoList.value);
+  // todoListに追加
+  add(todo.value);
 
   // 入力値をクリア
   todo.value = '';

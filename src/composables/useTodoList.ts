@@ -4,6 +4,8 @@ export const useTodoList = (id: number) => {
   const todoList = ref<{ id: number; text: string }[]>([]);
   const ls = localStorage.todoList;
   const editId = ref(-1);
+  // ローカルストレージにtodoListが存在していればparseして格納（ローカルストレージにはJSONコードにシリアライズされたデータが入っている）
+  // なければ空の配列を格納
   todoList.value = ls ? JSON.parse(ls) : [];
 
   const findById = (id: number) => {
