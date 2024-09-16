@@ -53,7 +53,7 @@ export const useTodoList = (id: number) => {
       if (!confirm(deleteMessage)) return;
 
       const deleteIndex = findIndexById(id);
-      todoList.value.splice(findIndexById(id), deleteIndex);
+      todoList.value.splice(deleteIndex, 1);
       localStorage.todoList = JSON.stringify(todoList.value);
     }
   };
