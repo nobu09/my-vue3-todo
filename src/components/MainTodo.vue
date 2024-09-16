@@ -22,21 +22,17 @@ const showTodo = (id: number) => {
 
   if (todo.value) {
     isEdit.value = true;
-    editId = id;
   }
 };
 
 const editTodo = () => {
-  const { findTodo, idx } = useTodoList(editId);
+  if (!todo.value) return;
 
-  if (findTodo) {
-    findTodo.text = todo.value;
-    todoList.value.splice(idx, 1, findTodo);
-    localStorage.todoList = JSON.stringify(todoList.value);
+  if (todo.value) {
+    edit(todo.value);
 
     // 初期値に戻す
     isEdit.value = false;
-    editId = -1;
     todo.value = '';
   }
 };
