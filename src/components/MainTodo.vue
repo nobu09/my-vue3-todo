@@ -4,7 +4,6 @@ import { useTodoList } from '@/composables/useTodoList';
 
 const todo = ref<string | undefined>();
 const isEdit = ref(false);
-let editId = -1;
 const { todoList, add, show, edit, del } = useTodoList();
 
 const addTodo = () => {
