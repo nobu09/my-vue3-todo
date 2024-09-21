@@ -1,7 +1,7 @@
 import { ref } from 'vue';
 
 export const useTodoList = (id: number) => {
-  const todoList = ref<{ id: number; text: string }[]>([]);
+  const todoList = ref<{ id: number; text: string; checked: boolean }[]>([]);
   const ls = localStorage.todoList;
   const editId = ref(-1);
   // ローカルストレージにtodoListが存在していればparseして格納（ローカルストレージにはJSONコードにシリアライズされたデータが入っている）
@@ -21,7 +21,7 @@ export const useTodoList = (id: number) => {
     const id = new Date().getTime();
 
     // 配列に入力TODOを追加
-    todoList.value.push({ id: id, text: task });
+    todoList.value.push({ id: id, text: task, checked: false });
 
     // localStorageに保存
     localStorage.todoList = JSON.stringify(todoList.value);
