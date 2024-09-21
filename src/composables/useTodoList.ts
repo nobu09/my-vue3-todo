@@ -58,5 +58,16 @@ export const useTodoList = (id: number) => {
     }
   };
 
-  return { todoList, add, show, edit, del };
+  const check = (id: number) => {
+    const todo = findById(id);
+    const index = findIndexById(id);
+
+    if (todo) {
+      todo.checked = !todo.checked;
+      todoList.value.splice(index, 1, todo);
+      localStorage.todoList = JSON.stringify(todoList.value);
+    }
+  };
+
+  return { todoList, add, show, edit, del, check };
 };

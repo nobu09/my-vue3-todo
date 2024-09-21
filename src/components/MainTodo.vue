@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useTodoList } from '@/composables/useTodoList';
+import { textChangeRangeIsUnchanged } from 'typescript';
 
 const todo = ref<string | undefined>();
 const isEdit = ref(false);
-const { todoList, add, show, edit, del } = useTodoList();
+const { todoList, add, show, edit, del, check } = useTodoList();
 
 const addTodo = () => {
   if (!todo.value) return;
@@ -42,6 +43,10 @@ const deleteTodo = (id: number) => {
 
   del(id);
 };
+
+const changeCheck = (id: number) => {
+  check(id);
+};
 </script>
 
 <template>
@@ -54,7 +59,7 @@ const deleteTodo = (id: number) => {
   <div class="box_list">
     <div class="todo_list" v-for="todo in todoList" :key="todo.id">
       <div class="todo">
-        <input type="checkbox" class="check" />
+        <input type="checkbox" class="check" @change="changeCheck(todo.id)" />
         <label>{{ todo.text }}</label>
       </div>
 
