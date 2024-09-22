@@ -59,7 +59,12 @@ const changeCheck = (id: number) => {
   <div class="box_list">
     <div class="todo_list" v-for="todo in todoList" :key="todo.id">
       <div class="todo">
-        <input type="checkbox" class="check" @change="changeCheck(todo.id)" />
+        <input
+          type="checkbox"
+          class="check"
+          @change="changeCheck(todo.id)"
+          :checked="todo.checked"
+        />
         <label>{{ todo.text }}</label>
       </div>
 
