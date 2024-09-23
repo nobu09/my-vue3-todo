@@ -126,6 +126,12 @@ const changeCheck = (id: number) => {
   transform: scale(1.6);
 }
 
+.fin {
+  color: #777;
+  text-decoration: line-through;
+  background-color: #ddd;
+}
+
 .btns {
   display: flex;
   gap: 4px;
