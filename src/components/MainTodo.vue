@@ -74,6 +74,11 @@ const changeCheck = (id: number) => {
       </div>
     </div>
   </div>
+
+  <div class="finCount">
+    <span>完了: </span>
+    <span>未完了: </span>
+  </div>
 </template>
 
 <style scoped>
@@ -143,5 +148,10 @@ const changeCheck = (id: number) => {
 
 .pink {
   background-color: #ff4081;
+}
+
+.finCount {
+  margin-top: 8px;
+  font-size: 0.8em;
 }
 </style>
