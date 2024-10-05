@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useTodoList } from '@/composables/useTodoList';
-import { textChangeRangeIsUnchanged } from 'typescript';
 
 const todo = ref<string | undefined>();
 const isEdit = ref(false);
-const { todoList, add, show, edit, del, check } = useTodoList();
+const { todoList, add, show, edit, del, check, countFinished } = useTodoList();
 
 const addTodo = () => {
   if (!todo.value) return;
@@ -76,7 +75,7 @@ const changeCheck = (id: number) => {
   </div>
 
   <div class="finCount">
-    <span>完了: </span>
+    <span>完了: {{ countFinished }}</span>
     <span>未完了: </span>
   </div>
 </template>
