@@ -46,6 +46,11 @@ const deleteTodo = (id: number) => {
 const changeCheck = (id: number) => {
   check(id);
 };
+
+const countFinishedMethod = () => {
+  console.log('from method');
+  return todoList.value.filter((todo) => todo.checked).length;
+};
 </script>
 
 <template>
@@ -76,7 +81,7 @@ const changeCheck = (id: number) => {
 
   <div class="finCount">
     <span>完了: {{ countFinished }}</span>
-    <span>未完了: </span>
+    <span>未完了: {{ countFinishedMethod() }}</span>
   </div>
 </template>
 
