@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useTodoList } from '@/composables/useTodoList';
+import BaseButton from '@/components/BaseButton.vue';
 
 const todo = ref<string | undefined>();
 const isEdit = ref(false);
@@ -54,6 +55,7 @@ const countFinishedMethod = () => {
 </script>
 
 <template>
+  <BaseButton />
   <div>
     <input type="text" class="todo-input" v-model="todo" placeholder="+ TODOを入力" />
     <button class="btn green" @click="editTodo" v-show="isEdit">変更</button>
