@@ -3,7 +3,7 @@ const aaa = () => {};
 </script>
 
 <template>
-  <button class="btn" @click="aaa">XXX</button>
+  <button class="btn" @click="aaa"><slot /></button>
 </template>
 
 <style scoped>
