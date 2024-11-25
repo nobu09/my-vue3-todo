@@ -1,9 +1,14 @@
 <script setup lang="ts">
+type Props = {
+  color: string;
+};
+const props = defineProps<Props>();
+
 const aaa = () => {};
 </script>
 
 <template>
-  <button class="btn" @click="aaa"><slot /></button>
+  <button class="btn" :color="props.color" @click="aaa"><slot /></button>
 </template>
 
 <style scoped>
@@ -14,5 +19,9 @@ const aaa = () => {};
   text-align: center;
   background-color: #03a9f4;
   border-radius: 6px;
+}
+
+.green {
+  background-color: #00c853;
 }
 </style>
