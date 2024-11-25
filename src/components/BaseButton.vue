@@ -8,7 +8,7 @@ const aaa = () => {};
 </script>
 
 <template>
-  <button class="btn" :color="props.color" @click="aaa"><slot /></button>
+  <button class="btn" :class="props.color" @click="aaa"><slot /></button>
 </template>
 
 <style scoped>
