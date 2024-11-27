@@ -55,8 +55,10 @@ const countFinishedMethod = () => {
 </script>
 
 <template>
-  <BaseButton>追加</BaseButton>
+  <BaseButton color="blue">追加</BaseButton>
   <BaseButton color="green">編</BaseButton>
+  <BaseButton color="pink">削</BaseButton>
+  <BaseButton color="green">変更</BaseButton>
   <div>
     <input type="text" class="todo-input" v-model="todo" placeholder="+ TODOを入力" />
     <button class="btn green" @click="editTodo" v-show="isEdit">変更</button>
