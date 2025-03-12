@@ -2,13 +2,21 @@
 type Props = {
   color: string;
 };
-const props = defineProps<Props>();
 
-const aaa = () => {};
+type Emits = {
+  'on-click': [void];
+};
+
+const props = defineProps<Props>();
+const emit = defineEmits<Emits>();
+
+const handleClick = () => {
+  emit('on-click');
+};
 </script>
 
 <template>
-  <button class="btn" :class="props.color" @click="aaa"><slot /></button>
+  <button class="btn" :class="props.color" @click="handleClick"><slot /></button>
 </template>
 
 <style scoped>
