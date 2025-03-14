@@ -8,6 +8,7 @@ type Emits = {
 };
 
 const props = defineProps<Props>();
+// 親に伝えるための名称を定義(on-click)
 const emit = defineEmits<Emits>();
 
 const handleClick = () => {
