@@ -52,10 +52,14 @@ const countFinishedMethod = () => {
   console.log('from method');
   return todoList.value.filter((todo) => todo.checked).length;
 };
+
+const test = () => {
+  console.log('test');
+};
 </script>
 
 <template>
-  <BaseButton color="blue">追加</BaseButton>
+  <BaseButton color="blue" @on-click="test">追加</BaseButton>
   <BaseButton color="green">編</BaseButton>
   <BaseButton color="pink">削</BaseButton>
   <BaseButton color="green">変更</BaseButton>
