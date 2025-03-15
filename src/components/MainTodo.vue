@@ -5,7 +5,7 @@ import BaseButton from '@/components/BaseButton.vue';
 
 const todo = ref<string | undefined>();
 const isEdit = ref(false);
-const { todoList, add, show, edit, del, check, countFinished } = useTodoList();
+const { todoList, add, show, edit, del, check, countFinished, countUnfinished } = useTodoList();
 
 const addTodo = () => {
   if (!todo.value) return;
@@ -47,11 +47,6 @@ const deleteTodo = (id: number) => {
 const changeCheck = (id: number) => {
   check(id);
 };
-
-const countFinishedMethod = () => {
-  console.log('from method');
-  return todoList.value.filter((todo) => todo.checked).length;
-};
 </script>
 
 <template>
@@ -82,7 +77,8 @@ const countFinishedMethod = () => {
 
   <div class="finCount">
     <span>完了: {{ countFinished }}</span>
-    <span>未完了: {{ countFinishedMethod() }}</span>
+    <br />
+    <span>未完了: {{ countUnfinished }}</span>
   </div>
 </template>
 

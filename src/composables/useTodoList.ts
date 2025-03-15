@@ -70,10 +70,14 @@ export const useTodoList = (id: number) => {
   };
 
   const countFinished = computed(() => {
-    console.log('from computed');
     const finishedArray = todoList.value.filter((todo) => todo.checked);
     return finishedArray.length;
   });
 
-  return { todoList, add, show, edit, del, check, countFinished };
+  const countUnfinished = computed(() => {
+    const unfinishedArray = todoList.value.filter((todo) => !todo.checked);
+    return unfinishedArray.length;
+  });
+
+  return { todoList, add, show, edit, del, check, countFinished, countUnfinished };
 };
