@@ -57,8 +57,8 @@ const countFinishedMethod = () => {
 <template>
   <div>
     <input type="text" class="todo-input" v-model="todo" placeholder="+ TODOを入力" />
-    <BaseButton class="btn green" @on-click="editTodo" v-show="isEdit">変更</BaseButton>
-    <BaseButton class="btn" @on-click="addTodo" v-show="!isEdit">追加</BaseButton>
+    <BaseButton class="green" @on-click="editTodo" v-show="isEdit">変更</BaseButton>
+    <BaseButton class="blue" @on-click="addTodo" v-show="!isEdit">追加</BaseButton>
   </div>
 
   <div class="box_list">
@@ -74,8 +74,8 @@ const countFinishedMethod = () => {
       </div>
 
       <div class="btns">
-        <BaseButton class="btn green" @on-click="showTodo(todo.id)">編</BaseButton>
-        <BaseButton class="btn pink" @on-click="deleteTodo(todo.id)">削</BaseButton>
+        <BaseButton class="green" @click="showTodo(todo.id)">編</BaseButton>
+        <BaseButton class="pink" @click="deleteTodo(todo.id)">削</BaseButton>
       </div>
     </div>
   </div>
