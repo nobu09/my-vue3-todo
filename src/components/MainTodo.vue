@@ -53,8 +53,8 @@ const countFinishedMethod = () => {
   return todoList.value.filter((todo) => todo.checked).length;
 };
 
-const test = (str: string, id: number) => {
-  console.log('test', str, id);
+const test = () => {
+  console.log('test');
 };
 </script>
 

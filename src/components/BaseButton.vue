@@ -4,21 +4,20 @@ type Props = {
 };
 
 type Emits = {
-  'on-click': [str: string, id: number];
+  'on-click': [void];
 };
 
 const props = defineProps<Props>();
 // 親に伝えるための名称を定義(on-click)
 const emit = defineEmits<Emits>();
 
-// ボタンクリック時、emitを使って親に通知
-const handleClick = (str: string, id: number) => {
-  emit('on-click', str, id);
+const handleClick = () => {
+  emit('on-click');
 };
 </script>
 
 <template>
-  <button class="btn" :class="props.color" @click="handleClick('あああ', 123)"><slot /></button>
+  <button class="btn" :class="props.color" @click="handleClick"><slot /></button>
 </template>
 
 <style scoped>
