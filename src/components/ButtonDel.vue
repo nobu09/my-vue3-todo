@@ -7,5 +7,5 @@ const emit = defineEmits<{ 'del-click': [void] }>();
 
 <template>
   <!-- // @on-clickにemitを直接書いている -->
-  <BaseButton color="pink" @add-click="emit('del-click')">削</BaseButton>
+  <BaseButton color="pink" @on-click="emit('del-click')">削</BaseButton>
 </template>
