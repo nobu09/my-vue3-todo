@@ -71,8 +71,8 @@ const changeCheck = (id: number) => {
       </div>
 
       <div class="btns">
-        <BaseButton color="green" @click="showTodo(todo.id)">編</BaseButton>
-        <ButtonDel @on-click="deleteTodo(todo.id)">削</ButtonDel>
+        <BaseButton color="green" @on-click="showTodo(todo.id)">編</BaseButton>
+        <ButtonDel @del-click="deleteTodo(todo.id)">削</ButtonDel>
       </div>
     </div>
   </div>
