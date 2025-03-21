@@ -55,7 +55,7 @@ const changeCheck = (id: number) => {
   <div>
     <input type="text" class="todo-input" v-model="todo" placeholder="+ TODOを入力" />
     <BaseButton color="green" @on-click="editTodo" v-show="isEdit">変更</BaseButton>
-    <ButtonAdd @on-click="addTodo" v-show="!isEdit">追加</ButtonAdd>
+    <ButtonAdd @add-click="addTodo" v-show="!isEdit">追加</ButtonAdd>
   </div>
 
   <div class="box_list">
