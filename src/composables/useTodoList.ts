@@ -1,6 +1,6 @@
 import { ref, computed } from 'vue';
 
-export const useTodoList = (id: number) => {
+export const useTodoList = () => {
   const todoList = ref<{ id: number; text: string; checked: boolean }[]>([]);
   const ls = localStorage.todoList;
   const editId = ref(-1);
