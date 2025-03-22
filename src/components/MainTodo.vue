@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useTodoList } from '@/composables/useTodoList';
-import BaseButton from '@/components/BaseButton.vue';
+import ButtonEdit from '@/components/ButtonEdit.vue';
 import ButtonAdd from '@/components/ButtonAdd.vue';
 import ButtonDel from '@/components/ButtonDel.vue';
 import ButtonShow from '@/components/ButtonShow.vue';
@@ -55,7 +55,7 @@ const changeCheck = (id: number) => {
 <template>
   <div>
     <input type="text" class="todo-input" v-model="todo" placeholder="+ TODOを入力" />
-    <BaseButton color="green" @on-click="editTodo" v-show="isEdit">変更</BaseButton>
+    <ButtonEdit @edit-click="editTodo" v-show="isEdit">変更</ButtonEdit>
     <ButtonAdd @add-click="addTodo" v-show="!isEdit">追加</ButtonAdd>
   </div>
 
