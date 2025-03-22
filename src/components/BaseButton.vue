@@ -1,6 +1,6 @@
 <script setup lang="ts">
 type Props = {
-  color: string;
+  color: 'blue' | 'green' | 'pink';
 };
 
 type Emits = {
@@ -11,6 +11,7 @@ const props = defineProps<Props>();
 // 親に伝えるための名称を定義(on-click)
 const emit = defineEmits<Emits>();
 
+// ボタンクリック時、emitを使って親に通知
 const handleClick = () => {
   emit('on-click');
 };
