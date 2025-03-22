@@ -4,6 +4,7 @@ import { useTodoList } from '@/composables/useTodoList';
 import BaseButton from '@/components/BaseButton.vue';
 import ButtonAdd from '@/components/ButtonAdd.vue';
 import ButtonDel from '@/components/ButtonDel.vue';
+import ButtonShow from '@/components/ButtonShow.vue';
 
 const todo = ref<string | undefined>();
 const isEdit = ref(false);
@@ -71,7 +72,7 @@ const changeCheck = (id: number) => {
       </div>
 
       <div class="btns">
-        <BaseButton color="green" @on-click="showTodo(todo.id)">編</BaseButton>
+        <ButtonShow @show-click="showTodo(todo.id)">編</ButtonShow>
         <ButtonDel @del-click="deleteTodo(todo.id)">削</ButtonDel>
       </div>
     </div>
