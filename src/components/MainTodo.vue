@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useTodoList } from '@/composables/useTodoList';
 import ButtonEdit from '@/components/ButtonEdit.vue';
 import ButtonAdd from '@/components/ButtonAdd.vue';
 import ButtonDel from '@/components/ButtonDel.vue';
 import ButtonShow from '@/components/ButtonShow.vue';
+
+onMounted(() => {
+  console.log('onMounted');
+});
 
 const todo = ref<string | undefined>();
 const isEdit = ref(false);
@@ -50,6 +54,7 @@ const deleteTodo = (id: number) => {
 const changeCheck = (id: number) => {
   check(id);
 };
+console.log('setup');
 </script>
 
 <template>
