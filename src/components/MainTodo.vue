@@ -6,13 +6,13 @@ import ButtonAdd from '@/components/ButtonAdd.vue';
 import ButtonDel from '@/components/ButtonDel.vue';
 import ButtonShow from '@/components/ButtonShow.vue';
 
-onMounted(() => {
-  console.log('onMounted');
-});
-
-const todo = ref<string | undefined>();
+// const todo = ref<string | undefined>();
 const isEdit = ref(false);
 const { todoList, add, show, edit, del, check, countFinished, countUnfinished } = useTodoList();
+
+const todo = ref('abc');
+const inpSetup = document.getElementById('inp');
+console.log('inpSetup', inpSetup);
 
 const addTodo = () => {
   if (!todo.value) return;
@@ -54,7 +54,11 @@ const deleteTodo = (id: number) => {
 const changeCheck = (id: number) => {
   check(id);
 };
-console.log('setup');
+
+onMounted(() => {
+  const inpMount = document.getElementById('inp').value;
+  console.log('inpMount', inpMount);
+});
 </script>
 
 <template>
@@ -68,6 +72,7 @@ console.log('setup');
     <div class="todo_list" v-for="todo in todoList" :key="todo.id">
       <div class="todo" :class="{ fin: todo.checked }">
         <input
+          id="inp"
           type="checkbox"
           class="check"
           @change="changeCheck(todo.id)"
