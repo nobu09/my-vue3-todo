@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted, onUpdated, ref } from 'vue';
 import { useTodoList } from '@/composables/useTodoList';
 import ButtonEdit from '@/components/ButtonEdit.vue';
 import ButtonAdd from '@/components/ButtonAdd.vue';
@@ -55,10 +55,16 @@ const changeCheck = (id: number) => {
   check(id);
 };
 
+onUpdated(() => {
+  console.log('onUpdated', todo.value);
+});
+
 onMounted(() => {
   const inpMount = document.getElementById('inp').value;
   console.log('inpMount', inpMount);
 });
+
+console.log('setup');
 </script>
 
 <template>
