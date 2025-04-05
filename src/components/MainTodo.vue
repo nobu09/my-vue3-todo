@@ -70,8 +70,8 @@ console.log('setup');
 <template>
   <div>
     <input id="inp" type="text" class="todo-input" v-model="todo" placeholder="+ TODOを入力" />
-    <ButtonEdit @edit-click="editTodo" v-show="isEdit">変更</ButtonEdit>
-    <ButtonAdd @add-click="addTodo" v-show="!isEdit">追加</ButtonAdd>
+    <ButtonEdit @edit-click="editTodo" v-if="isEdit">変更</ButtonEdit>
+    <ButtonAdd @add-click="addTodo" v-if="!isEdit">追加</ButtonAdd>
   </div>
 
   <div class="box_list">
