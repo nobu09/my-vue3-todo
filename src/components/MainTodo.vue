@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUpdated, ref } from 'vue';
+import { ref } from 'vue';
 import { useTodoList } from '@/composables/useTodoList';
 import ButtonEdit from '@/components/ButtonEdit.vue';
 import ButtonAdd from '@/components/ButtonAdd.vue';
@@ -11,8 +11,6 @@ const isEdit = ref(false);
 const { todoList, add, show, edit, del, check, countFinished, countUnfinished } = useTodoList();
 
 const todo = ref('abc');
-const inpSetup = document.getElementById('inp');
-console.log('inpSetup', inpSetup);
 
 const addTodo = () => {
   if (!todo.value) return;
@@ -54,22 +52,11 @@ const deleteTodo = (id: number) => {
 const changeCheck = (id: number) => {
   check(id);
 };
-
-onUpdated(() => {
-  console.log('onUpdated', todo.value);
-});
-
-onMounted(() => {
-  const inpMount = document.getElementById('inp').value;
-  console.log('inpMount', inpMount);
-});
-
-console.log('setup');
 </script>
 
 <template>
   <div>
-    <input id="inp" type="text" class="todo-input" v-model="todo" placeholder="+ TODOを入力" />
+    <input type="text" class="todo-input" v-model="todo" placeholder="+ TODOを入力" />
     <ButtonEdit @edit-click="editTodo" v-if="isEdit">変更</ButtonEdit>
     <ButtonAdd @add-click="addTodo" v-if="!isEdit">追加</ButtonAdd>
   </div>
