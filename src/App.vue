@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import MainTodo from '@/components/MainTodo.vue';
 import TheHeader from '@/components/TheHeader.vue';
 import TheFooter from '@/components/TheFooter.vue';
 </script>
@@ -7,7 +6,7 @@ import TheFooter from '@/components/TheFooter.vue';
 <template>
   <div class="wrap">
     <TheHeader />
-    <main class="main"><MainTodo /></main>
+    <main class="main"><router-view /></main>
     <TheFooter />
   </div>
 </template>
