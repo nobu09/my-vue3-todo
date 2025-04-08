@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import MainTodo from '../views/MainTodo.vue';
+import MainTodo from '@/views/MainTodo.vue';
 
 const router = createRouter({
   history: createWebHistory(),
