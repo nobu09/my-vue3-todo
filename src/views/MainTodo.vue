@@ -5,10 +5,14 @@ import ButtonEdit from '@/components/ButtonEdit.vue';
 import ButtonAdd from '@/components/ButtonAdd.vue';
 import ButtonDel from '@/components/ButtonDel.vue';
 import ButtonShow from '@/components/ButtonShow.vue';
+import { useRouter } from 'vue-router';
+import { useAuth } from '@/composables/useAuth';
 
 // const todo = ref<string | undefined>();
 const isEdit = ref(false);
 const { todoList, add, show, edit, del, check, countFinished, countUnfinished } = useTodoList();
+const router = useRouter();
+const { logout } = useAuth();
 
 const todo = ref('abc');
 
@@ -52,13 +56,21 @@ const deleteTodo = (id: number) => {
 const changeCheck = (id: number) => {
   check(id);
 };
+
+const handleLogout = () => {
+  logout();
+  router.push('/login');
+};
 </script>
 
 <template>
   <div>
-    <input type="text" class="todo-input" v-model="todo" placeholder="+ TODOを入力" />
-    <ButtonEdit @edit-click="editTodo" v-if="isEdit">変更</ButtonEdit>
-    <ButtonAdd @add-click="addTodo" v-if="!isEdit">追加</ButtonAdd>
+    <div class="header">
+      <input type="text" class="todo-input" v-model="todo" placeholder="+ TODOを入力" />
+      <ButtonEdit @edit-click="editTodo" v-if="isEdit">変更</ButtonEdit>
+      <ButtonAdd @add-click="addTodo" v-if="!isEdit">追加</ButtonAdd>
+      <button @click="handleLogout" class="logout-button">ログアウト</button>
+    </div>
   </div>
 
   <div class="box_list">
@@ -159,5 +171,24 @@ const changeCheck = (id: number) => {
 .finCount {
   margin-top: 8px;
   font-size: 0.8em;
+}
+
+.header {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.logout-button {
+  padding: 6px 12px;
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #f50057;
 }
 </style>
