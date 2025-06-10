@@ -6,6 +6,11 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      name: 'top', // nameを使う場合は名前が重複しないようにする
+      component: MainTodo
+    },
+    {
+      path: '/mainTodo',
       name: 'mainTodo',
       component: MainTodo
     }
