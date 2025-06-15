@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import MainTodo from '@/views/MainTodo.vue';
+import About from '@/views/About.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -13,6 +14,11 @@ const router = createRouter({
       path: '/mainTodo',
       name: 'mainTodo',
       component: MainTodo
+    },
+    {
+      path: '/about',
+      name: 'about',
+      component: About
     }
   ]
 });
