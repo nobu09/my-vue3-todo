@@ -10,7 +10,7 @@ import ButtonShow from '@/components/ButtonShow.vue';
 const isEdit = ref(false);
 const { todoList, add, show, edit, del, check, countFinished, countUnfinished } = useTodoList();
 
-const todo = ref('abc');
+const todo = ref<string | undefined>('abc');
 
 const addTodo = () => {
   if (!todo.value) return;
