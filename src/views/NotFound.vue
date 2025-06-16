@@ -4,13 +4,13 @@
       <div class="code">
         <p>404</p>
       </div>
-      <div class="message_en">
+      <div class="msg_en">
         <p>Page</p>
         <p>Not</p>
         <p>Found</p>
       </div>
     </div>
-    <div class="message_ja">お探しのページは見つかりませんでした。</div>
+    <div class="msg_ja">お探しのページは見つかりませんでした。</div>
   </div>
 </template>
 
@@ -34,7 +34,7 @@
   color: #888;
 }
 
-.msg_en {
+.msg_en p {
   margin: 0;
   font-size: 16px;
 }
