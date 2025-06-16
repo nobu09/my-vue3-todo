@@ -18,6 +18,11 @@ const router = createRouter({
       path: '/about',
       name: 'about',
       component: () => import('@/views/About.vue')
+    },
+    {
+      path: '/:pathMatch(.*)*', // 存在しないアドレスにマッチする指定
+      name: 'notFound',
+      component: () => import('@/views/NotFound.vue')
     }
   ]
 });
