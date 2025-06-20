@@ -23,6 +23,11 @@ const router = createRouter({
       path: '/:pathMatch(.*)*', // 存在しないアドレスにマッチする指定
       name: 'notFound',
       component: () => import('@/views/NotFound.vue')
+    },
+    {
+      path: '/blog',
+      name: 'blog',
+      component: () => import('@/views/Blog.vue')
     }
   ]
 });
