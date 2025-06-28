@@ -1,17 +1,24 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { onMounted, ref } from 'vue';
 
-const route = useRoute();
-// routes で設定した :id と同じ名前を指定する
-const id = ref(route.params.id);
+export type PostResponse = {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+};
 
-console.log(`watch外: ${id.value}`);
+const posts = ref<PostResponse[]>([]);
+const fetchData = async () => {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+    posts.value = await response.json();
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+};
 
-watch(route, () => {
-  id.value = route.params.id;
-  console.log(`watch内: ${id.value}`);
-});
+onMounted(fetchData);
 </script>
 
 <template>
