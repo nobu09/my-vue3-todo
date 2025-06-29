@@ -14,7 +14,7 @@ const goBlog = () => {
     <TheHeader />
     <nav>
       <router-link to="/">Todo</router-link>
-      | <router-link to="/about">About</router-link> | <router-link to="/blog">Blog</router-link> |
+      | <router-link to="/about">About</router-link> | <router-link to="/blog">Blog</router-link>
     </nav>
     <main class="main"><router-view /></main>
     <TheFooter />
