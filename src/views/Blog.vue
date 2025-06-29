@@ -28,7 +28,26 @@ onMounted(fetchData);
       <router-link :to="`/blog/${posts.id}`">{{ post.title }}</router-link>
     </li>
   </ul>
-
-  <h1>blog page</h1>
-  <p>blog id = {{ id }}</p>
 </template>
+
+<style scoped>
+ul {
+  margin-top: 12px;
+}
+
+li {
+  padding: 8px;
+  margin-bottom: 8px;
+  list-style: none;
+  border: 1px solid #ccc;
+}
+
+li:hover {
+  background-color: #eee;
+}
+
+a {
+  color: #333;
+  list-style: none;
+}
+</style>
