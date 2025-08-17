@@ -25,7 +25,7 @@ onMounted(fetchData);
   <ul>
     <li v-for="post in posts" :key="post.id">
       {{ post.id }}
-      <router-link :to="`/blog/${posts.id}`">{{ post.title }}</router-link>
+      <router-link :to="`/blog/${post.id}`">{{ post.title }}</router-link>
     </li>
   </ul>
 </template>
