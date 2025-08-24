@@ -33,6 +33,11 @@ const router = createRouter({
       path: '/blog/:id',
       name: 'blogDetail',
       component: () => import('@/views/BlogDetail.vue')
+    },
+    {
+      path: '/count',
+      name: 'count',
+      component: () => import('@/views/Count.vue')
     }
   ]
 });
